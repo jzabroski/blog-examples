@@ -6,6 +6,11 @@ namespace XUnitTheoryTests
 {
     public class CalculatorTests
     {
+        public CalculatorTests(ITestOutputHelper testOutputHelper)
+        {
+            testOutputHelper.WriteLine($"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace(@"file://", string.Empty)}");
+        }
+        
         [Theory]
         [JsonFileData("all_data.json")]
         public void CanAddTheoryJsonFile(int value1, int value2, int expected)
